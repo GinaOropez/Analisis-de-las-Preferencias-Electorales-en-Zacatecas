@@ -28,7 +28,6 @@ Donde el tipo de variables que las conforman son numéricas y de texto.
 
 |Definición|
 |:-------------------------------------------------------------------------:|
-|Cambio: Proceso mediante el cual un estado se modifica pasando a otra condición.|
 |Cambio: Proceso en el cual los partidos electos en un período se mantienen o son reemplazados por otros en el siguiente, generando una modificación en la composición política.|
 |Cambio: Proceso mediante el cual los partidos elegidos en un período pueden continuar en el siguiente o ser sustituidos por otros, lo que resulta en una modificación en la composición política.|
 
@@ -36,13 +35,10 @@ Donde el tipo de variables que las conforman son numéricas y de texto.
 |:-------------------------------------------------------------------------:|
 |Período: Se refiere al intervalo de tiempo entre un proceso electoral y el siguiente, durante el cual se producen los cambios en el mandato municipal.|
 
-|                             BASE INICIAL                                  |
+|                             BASE DE DATOS                                 |
 |:-------------------------------------------------------------------------:|
-|  Base de datos que detalla los partidos electos a nivel municipal en cada proceso electoral para cada estado. |
+|  Base de datos que detalla los tipos de cambio a nivel municipal en cada periodo para cada estado. |
 
- Base de datos codificada de acuerdo con el tipo de cambio.
-
-Se presenta en dos bases de datos distintas, cada una conformada por uno de los pasos de la codificación. 
 
 Las bases de datos incluyen:
 
