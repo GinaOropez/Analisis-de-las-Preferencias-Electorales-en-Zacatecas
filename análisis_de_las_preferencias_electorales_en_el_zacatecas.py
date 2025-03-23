@@ -7,10 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1YvZ9USzcdSseLYn4RmBWigTyKiqCXzHb
 """
 
-import sys
-print(sys.version)
-
-!python --version
 
 """# Análisis de las Preferencias Electorales en Zacatecas
 
