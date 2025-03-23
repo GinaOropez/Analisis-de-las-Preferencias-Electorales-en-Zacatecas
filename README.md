@@ -193,11 +193,11 @@ Con el objetivo de analizar los cambios espacio-temporales en la entidad federat
 
 Se realizó un análisis de datos utilizando herramientas de estadística descriptiva, como tablas de distribución de frecuencias y histogramas para representar la información. Además, se calculó la entropía de Shannon para los datos, definida como:
 
-![Definición Entropía de Shannon ](Entropía1.png)
+![Definición Entropía de Shannon ](Entropia1.png)
 
 Al igual, que se calculó la energía, definida como:
 
-![Definición Energía ](Energía.png)
+![Definición Energía ](Energia.png)
 
 Con el objetivo de identificar comportamientos.  Este análisis se visualizó 
 mediante mapas de calor.
