@@ -79,7 +79,7 @@ Las cuales están conformadas de la manera siguiente:
 | 13   | General Enrique Estrada    | 
 | 17     | Guadalupe  | 
 | 32    | Morelos    | 
-| 37       | PANUCO | 
+| 37       | Pánuco | 
 | 50  | Vetagrande   | 
 | 56       |Zacatecas | 
 | 57 | Trancoso   | 
@@ -100,7 +100,7 @@ Las cuales están conformadas de la manera siguiente:
 | Clave | Municipio | 
 |:------------------:|:--------------:|
 | 9   | Chalchihuites   | 
-| 21     | Jimenez del Teul   | 
+| 21     | Jiménez del Teul   | 
 |40    | Sain Alto  | 
 | 42  | Sombrerete    | 
 
@@ -139,7 +139,7 @@ Las cuales están conformadas de la manera siguiente:
 
 | Clave | Municipio | 
 |:------------------:|:--------------:|
-| 8     | Cuauhtemoc  | 
+| 8     | Cuauhtémoc  | 
 | 16    | General Panfilo Natera   | 
 | 24    | Loreto| 
 | 25  | Luis Moya   | 
@@ -167,7 +167,7 @@ Las cuales están conformadas de la manera siguiente:
 | 28 | Mezquital del Oro   | 
 | 30   | Momax | 
 | 33 | Moyahua de Estrada  | 
-| 34     | Nochistlán de Mejia| 
+| 34     | Nochistlán de Mejía| 
 | 44 | Tabasco  | 
 | 45 | Tepechitlán  | 
 | 47   |  Teúl de González Ortega | 
