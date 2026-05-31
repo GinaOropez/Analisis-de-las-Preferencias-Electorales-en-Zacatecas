@@ -231,9 +231,9 @@ el conjunto de los periodos electorales del municipio $m\in e$.
 La historia electoral de un municipio $m\in e$ consiste en los partidos o coaliciones que ganaron un proceso electoral en los tiempos de $\mathcal{T}_m$, la cual escribimos como la sucesión
 
 $$
-{x_{t_1}^{*},x_{t_2}^{*},\ldots,x_{t_T}^{*}}
-\subseteq
-\mathcal{P}(X)^T.
+(x_{t_1}^{\ast},x_{t_2}^{\ast},...,x_{t_T}^{\ast})
+\in
+\mathcal{P}(X)^T
 $$
 
 A estas sucesiones las codificamos dependiendo del tipo de cambio entre los ganadores de procesos electorales consecutivos mediante la función
@@ -246,16 +246,16 @@ $$
 
 donde, para cada periodo electoral $(t_i,t_{i+1})$:
 
-| Código | Condición                  |         |      |             |                                            |
-| ------ | -------------------------- | ------- | ---- | ----------- | ------------------------------------------ |
-| 0      | $x_{t_i}=x_{t_{i+1}}$      |         |      |             |                                            |
-| 1      | $x_{t_i}\neq x_{t_{i+1}},; | x_{t_i} | =    | x_{t_{i+1}} | =1$                                        |
-| 2      | $x_{t_i}\neq x_{t_{i+1}},; | x_{t_i} | =1,; | x_{t_{i+1}} | >1,; x_{t_i}\cap x_{t_{i+1}}=\emptyset$    |
-| 3      | $x_{t_i}\neq x_{t_{i+1}},; | x_{t_i} | =1,; | x_{t_{i+1}} | >1,; x_{t_i}\cap x_{t_{i+1}}\neq\emptyset$ |
-| 4      | $x_{t_i}\neq x_{t_{i+1}},; | x_{t_i} | >1,; | x_{t_{i+1}} | >1,; x_{t_i}\cap x_{t_{i+1}}=\emptyset$    |
-| 5      | $x_{t_i}\neq x_{t_{i+1}},; | x_{t_i} | >1,; | x_{t_{i+1}} | >1,; x_{t_i}\cap x_{t_{i+1}}\neq\emptyset$ |
-| 6      | $x_{t_i}\neq x_{t_{i+1}},; | x_{t_i} | >1,; | x_{t_{i+1}} | =1,; x_{t_i}\cap x_{t_{i+1}}=\emptyset$    |
-| 7      | $x_{t_i}\neq x_{t_{i+1}},; | x_{t_i} | >1,; | x_{t_{i+1}} | =1,; x_{t_i}\cap x_{t_{i+1}}\neq\emptyset$ |
+| Código | Condición |
+|---------|-----------|
+| 0 | $x_{t_i}=x_{t_{i+1}}$ |
+| 1 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert=\lvert x_{t_{i+1}}\rvert=1$ |
+| 2 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert=1,\; \lvert x_{t_{i+1}}\rvert>1,\; x_{t_i}\cap x_{t_{i+1}}=\emptyset$ |
+| 3 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert=1,\; \lvert x_{t_{i+1}}\rvert>1,\; x_{t_i}\cap x_{t_{i+1}}\neq\emptyset$ |
+| 4 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert>1,\; \lvert x_{t_{i+1}}\rvert>1,\; x_{t_i}\cap x_{t_{i+1}}=\emptyset$ |
+| 5 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert>1,\; \lvert x_{t_{i+1}}\rvert>1,\; x_{t_i}\cap x_{t_{i+1}}\neq\emptyset$ |
+| 6 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert>1,\; \lvert x_{t_{i+1}}\rvert=1,\; x_{t_i}\cap x_{t_{i+1}}=\emptyset$ |
+| 7 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert>1,\; \lvert x_{t_{i+1}}\rvert=1,\; x_{t_i}\cap x_{t_{i+1}}\neq\emptyset$ |
 
 Donde $|x_t|$ denota la cardinalidad de la coalición $x$. De este modo, los cambios se etiquetan dependiendo de si involucran partidos individuales o coaliciones, y de si existen partidos compartidos entre los ganadores consecutivos.
 
@@ -303,11 +303,91 @@ $$
 
 Se realizó un análisis de datos utilizando herramientas de estadística descriptiva, como tablas de distribución de frecuencias y histogramas para representar la información. Además, se calculó la entropía de Shannon para los datos, definida como:
 
-![Definición Entropía de Shannon ](Entropia1.png)
+### Definición (Entropía de Shannon)
+
+Sea $\Omega$ un conjunto finito, nuestro espacio de configuración abstracto.
+
+* Un estado es un vector de probabilidad
+
+$$
+\mu = \bigl(\mu(\omega)\mid \omega\in\Omega\bigr).
+$$
+
+El conjunto de estados se denota por $\mathcal{M}$.
+
+* La entropía de un estado $\mu$ se define como
+
+$$
+H(\mu):=
+-\sum_{\omega\in\Omega}
+\mu(\omega)\log_2\bigl(\mu(\omega)\bigr).
+$$
+
+Esta función es continua con respecto al estado $\mu\in\mathcal{M}\subset\mathbb{R}^{|\Omega|}$.
+
+Consideramos la entropía como una medida de la cantidad de incertidumbre que permanece para el observador cuando el sistema se encuentra en el estado $\mu$.
+
+Para los cálculos realizados en este trabajo se utiliza el logaritmo en base 2.
+
+Los valores de $H(\mu)$ pertenecen al intervalo
+
+$$
+[0,\log_2(|\Omega|)].
+$$
+
+Un valor de $0$ indica ausencia de incertidumbre, es decir, la presencia de un único tipo de cambio. Por otro lado, cuando
+
+$$
+H(\mu)=\log_2(|\Omega|),
+$$
+
+la incertidumbre es máxima y todas las configuraciones posibles son equiprobables.
+
+Con el fin de obtener valores en el intervalo $[0,1]$, se utiliza la entropía normalizada
+
+$$
+H'(\mu):=
+\frac{H(\mu)}
+{\log_2(|\Omega|)}.
+$$
+
+Por lo tanto,
+
+$$
+H'(\mu)\in[0,1].
+$$
+
 
 Al igual, que se calculó la energía, definida como:
 
-![Definición Energía ](Energia.png)
+### Definición (Energía)
+
+Sea $\Omega$ un conjunto finito, nuestro espacio de configuración abstracto.
+
+A cada configuración $\omega\in\Omega$ se le asigna un valor de energía
+
+$$
+u(\omega)\in\mathbb{R}.
+$$
+
+En el estado $\mu$, la energía media del sistema se define como
+
+$$
+\mu(u):=
+\sum_{\omega\in\Omega}
+u(\omega)\mu(\omega).
+$$
+
+La cantidad $\mu(\omega)$ representa la probabilidad asociada a cada tipo de cambio observado en un periodo electoral de una región.
+
+En esta aplicación, la función de energía toma valores en
+
+$$
+u(\omega)\in{0,1,2,3},
+$$
+
+donde 0 indica poca energía, es decir, no hay ningún tipo de cambio, y 3 indica la máxima energía, interpretándose como una participación significativa de uno o varios tipos de cambio. 
+
 
 Con el objetivo de identificar comportamientos.  Este análisis se visualizó 
 mediante mapas de calor.
