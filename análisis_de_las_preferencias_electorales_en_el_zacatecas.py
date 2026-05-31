@@ -185,14 +185,13 @@ Con el siguiente código, comenzamos con la tabla de frecuencias, generamos la t
 """
 
 # Inicializar un diccionario para almacenar las frecuencias (consideramos 0,1,2,3 por la codificación)
-# Estados posibles
 estados = [0, 1, 2, 3]
 
 # Diccionario para almacenar frecuencias
 frecuencias = {estado: [] for estado in estados}
 
 # Columnas de periodos
-columnas_relevantes = df_estatal.columns[2:]
+columnas_relevantes = df_filtrado_NORTE.columns[2:]
 
 # Contar frecuencias por periodo
 for col in columnas_relevantes:
@@ -200,30 +199,30 @@ for col in columnas_relevantes:
     for estado in estados:
 
         frecuencias[estado].append(
-            (df_estatal[col] == estado).sum()
+            (df_filtrado_NORTE[col] == estado).sum()
         )
 
 # Crear tabla de frecuencias
-tabla_frecuencias_ESTATAL = pd.DataFrame(
+tabla_frecuencias_NORTE = pd.DataFrame(
     frecuencias,
     index=columnas_relevantes
 ).T
 
 # TOTAL DE OBSERVACIONES
 
-tabla_frecuencias_ESTATAL.loc['Total'] = (
-    tabla_frecuencias_ESTATAL.sum(axis=0)
+tabla_frecuencias_NORTE.loc['Total'] = (
+    tabla_frecuencias_NORTE.sum(axis=0)
 )
 
 # TABLA DE PROBABILIDADES
 
-tabla_probabilidades_ESTATAL = tabla_frecuencias_ESTATAL.div(
-    tabla_frecuencias_ESTATAL.loc['Total'],
+tabla_probabilidades_NORTE = tabla_frecuencias_NORTE.div(
+    tabla_frecuencias_NORTE.loc['Total'],
     axis=1
 )
 
 # Eliminar fila Total
-tabla_probabilidades_ESTATAL = tabla_probabilidades_ESTATAL.drop(
+tabla_probabilidades_NORTE = tabla_probabilidades_NORTE.drop(
     index='Total'
 )
 
@@ -251,50 +250,48 @@ def calcular_entropia(probabilidades):
 
 # CALCULAR ENTROPÍA
 
-entropia_ESTATAL = tabla_probabilidades_ESTATAL.apply(
+entropia_NORTE = tabla_probabilidades_NORTE.apply(
     calcular_entropia,
     axis=0
 )
 
 # ENTROPÍA TOTAL
 
-entropia_total_ESTATAL = entropia_ESTATAL.sum(axis=0)
+entropia_total_NORTE = entropia_NORTE.sum(axis=0)
 
 # Agregar fila final
-entropia_ESTATAL.loc[
-    'Entropía Total ESTATAL'
-] = entropia_total_ESTATAL
+entropia_NORTE.loc[
+    'Entropía Total NORTE'
+] = entropia_total_NORTE
 
 # EXPORTAR CSV
 
-entropia_ESTATAL.to_csv(
-    'tabla_entropia_ESTATAL.csv',
+entropia_NORTE.to_csv(
+    'tabla_entropia_NORTE.csv',
     index=True,
     encoding='latin-1'
 )
 
 # LEER CSV
 
-df_ESTATAL = pd.read_csv(
-    'tabla_entropia_ESTATAL.csv',
+df_NORTE = pd.read_csv(
+    'tabla_entropia_NORTE.csv',
     encoding='latin-1'
 )
 
 # MOSTRAR RESULTADOS
 
 print("\nTabla de Frecuencias:")
-print(tabla_frecuencias_ESTATAL)
+print(tabla_frecuencias_NORTE)
 
 print("\nTabla de Probabilidades:")
-print(tabla_probabilidades_ESTATAL)
+print(tabla_probabilidades_NORTE)
 
 print("\nTabla de Entropía:")
-print(entropia_ESTATAL)
+print(entropia_NORTE)
 
 print("\nEntropía Total:")
-print(entropia_total_ESTATAL)
-
-
+print(entropia_total_NORTE)
 
 """## Energía
 
