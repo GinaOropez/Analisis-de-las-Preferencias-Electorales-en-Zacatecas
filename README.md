@@ -180,10 +180,62 @@ Las cuales están conformadas de la manera siguiente:
 
 Con el objetivo de analizar los cambios espacio-temporales en la entidad federativa, definimos la siguiente codificación:
 
-![Codificación ](Codificación1.png)
-![Codificación ](Codificación2.png)
-![Codificación ](Codificación3.png)
-![Codificación ](Codificación4.png)
+\noindent Sea $\mathcal{E}$ el conjunto de delimitaciones territoriales políticas que conforman un país. \\
+\\
+Cada elemento $e\in$ $\mathcal{E}$ está definido como $e=\left\{m_1,m_2,...,m_M\right\}$ donde $M \in \mathbb{N}$, a los cuales llamamos \textit{los municipios de $e$}.\\
+\\
+Definamos ahora el conjunto $X=\left\{x_1,x_2,...,x_N\right\}$ que representan a \textit{los partidos que participan en un proceso electoral}, con $N\in$ $\mathbb{N}$. Sea $\mathcal{P}(X)$ su conjunto potencia, el cual incluye a los partidos y a \textit{las coaliciones de partidos} de un proceso electoral. \\
+\\
+Sea $\mathcal{T}_m=\left\{t_1,t_2,t_3,...,t_T\right\}$ una discretización del tiempo, el cual representa los años en los cuales se realizó un proceso electoral en $m\in e$, $T\in$ $\mathbb{N}$ es su número de procesos electorales.\\
+\\
+Al partido o coalición ganadora $x\in \mathcal{P}(X)$ de un proceso electoral en el año $t\in \mathcal{T}_m$, lo denotaremos como $x^*_t$.\\
+\\
+Construimos $c_i=\left(t_{i}, t_{i+1} \right)$ para $1\leq i \leq T-1$ que llamamos \textit{los periodos electorales}. Sea $\mathcal{C}=\left\{c_1,c_2,...,c_{T-1}\right\}$ el conjunto de los periodos electorales del municipio $m\in e$.\\
+\\
+La historia electoral de un municipio $m\in e$ son los partidos que ganaron un proceso electoral en $\mathcal{T}_e$, la cual escribimos como la sucesión: 
+
+    $$\left\{ x_{t_1}^{*},x_{t_2}^{*},...,x_{t_T}^{*} \right\} \subseteq \mathcal{P}(X)^{T}.$$\\
+
+\noindent A estas sucesiones las codificamos dependiendo el tipo de cambio en los ganadores del proceso electoral por cada periodo electoral, a través de la siguiente función:
+
+$$f: \mathcal{P}(X)^{T} \rightarrow \{0,1,...,7 \}^T.$$
+
+
+\[f(\left\{x_{t_1}^*,...,x_{t_T}^*\right\}) = \left\{ \begin{array}{ll} 0: & x_{t_i}= x_{t_{i+1}}.
+\\ 1:& x_{t_i}\neq x_{t_{i+1}}, \ |x_{t_i}|=|x_{t_{i+1}}|=1 .
+\\ 2: &  x_{t_i} \neq x_{t_{i+1}},\ |x_{t_i}|=1, \ |x_{t_{i+1}}|>1,  \ x_{t_i} \cap x_{t_{i+1}} = \emptyset.
+\\ 3: &  x_{t_i} \neq x_{t_{i+1}},\ |x_{t_i}|=1, \ |x_{t_{i+1}}|>1,  \ x_{t_i} \cap x_{t_{i+1}} \neq \emptyset.
+\\ 4: &  x_{t_i} \neq x_{t_{i+1}}, \ |x_{t_{i}}|>1, \ |x_{t_{i+1}}|>1,  \ x_{t_i} \cap x_{t_{i+1}} = \emptyset.
+\\ 5: &  x_{t_i} \neq x_{t_{i+1}},\ |x_{t_{i}}|>1, \ |x_{t_{i+1}}|>1,  \ x_{t_i} \cap x_{t_{i+1}} \neq \emptyset. 
+\\ 6: & x_{t_i} \neq x_{t_{i+1}}, \ |x_{t_{i}}|>1, \ |x_{t_{i+1}}|=1,  \ x_{t_i} \cap x_{t_{i+1}} = \emptyset. 
+\\ 7: &  x_{t_i} \neq x_{t_{i+1}}, \ |x_{t_{i}}|>1, \ |x_{t_{i+1}}|=1,  \ x_{t_i} \cap x_{t_{i+1}} \neq \emptyset.
+\end{array} \right. \]
+\\
+\\
+Donde $|x_t|$ denota la cardinalidad de la coalición $x$, de tal modo que los cambios se etiquetan dependiendo de si se involucran los partidos.
+\\
+\\
+Definimos la función:
+$$g:\{ 0,1,...,7\}^T\rightarrow \{0,1,2,3\}^T,$$
+donde $y=\{ y_1,...,y_T\}$, y:
+$$
+g(y) = \left\{ \begin{array}{ll} 
+0: &  y_i= 0.\\ 
+1: &  y_i \in \left\{3,5,7\right\}.\\  
+2: &  y_i \in \left\{2,4\right\}.\\ 
+3: &  y_i \in \left\{1,6\right\}. 
+\end{array}\right.
+$$
+\\
+\noindent A la imagen de la función $g$, les damos los siguientes nombres: al 0 \textit{estabilidad}, al 1 \textit{cambio con ayuda}, al 2 \textit{cambio forzado} y por último, al 3 \textit{cambio simple}.\\
+\\
+Por ejemplo, un cambio que va de un partido a una coalición que lo contiene es un \textit{cambio con ayuda}.
+\\
+
+\noindent La codificación que nosotros consideramos está dada por:
+
+$$g\circ f : \mathcal{P}(X)^{T} \rightarrow \{0,1,2,3 \}^T.$$
+
 
 ### Herramientas empleadas
 
