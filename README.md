@@ -392,9 +392,9 @@ donde 0 indica poca energía, es decir, no hay ningún tipo de cambio, y 3 indic
 Con el objetivo de identificar comportamientos.  Este análisis se visualizó 
 mediante mapas de calor.
 
-![Mapa entropía ](entropia.png)
+![Mapa entropía ](entropia-act.png)
 
-![Mapa energía ](energia.png)
+![Mapa energía ](energia-act.png)
 
 ## Referencias
 
