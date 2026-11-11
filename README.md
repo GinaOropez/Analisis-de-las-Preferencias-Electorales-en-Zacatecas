@@ -174,7 +174,7 @@ Las cuales están conformadas de la manera siguiente:
 | 48 | Tlaltenango de Sánchez Román | 
 | 58     | Santa María de la Paz| 
 
-![Regionalización ](Mapa regiones.png)
+![Regionalización ](Maparegiones.png)
 
 ### Codificación
 
