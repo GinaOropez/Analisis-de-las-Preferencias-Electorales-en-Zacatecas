@@ -1,10 +1,10 @@
 # Análisis y Modelado de las Preferencias Electorales en el estado de Zacatecas
 
-En este repositorio encontrará las bases de datos de los nueve procesos electorales comprendidos entre los años 1998 y 2024 del estado de Zacatecas. Además, se incluyen dos bases de datos codificadas por tipo de cambio:
+En este repositorio encontrará las bases de datos de los nueve procesos electorales comprendidos entre los años 1998 y 2024 del estado de Zacatecas. Además, se incluyen dos bases de datos codificadas por tipo de transición:
 
-CODIFICACIÓN 1: Es el primer paso de la codificación, en el que se consideran ocho tipos de cambio.
+CODIFICACIÓN 1: Es el primer paso de la codificación, en el que se consideran ocho tipos de transiciones.
 
-CODIFICACIÓN 2: Es el segundo y último paso, en el cual se condensan los ocho tipos de cambio en cuatro.
+CODIFICACIÓN 2: Es el segundo y último paso, en el cual se condensan los ocho tipos de transiciones en cuatro.
 
 Asimismo, encontrará el código para realizar el análisis descriptivo conformado por: tablas de frecuencias, cálculos de probabilidad, entropía de Shannon y energía con el objetivo de identificar comportamientos, así como el código para la creación de histogramas y mapas de calor. 
 
@@ -28,8 +28,8 @@ Donde el tipo de variables que las conforman son numéricas y de texto.
 
 |Definición|
 |:-------------------------------------------------------------------------:|
-|Cambio: Proceso en el cual los partidos electos en un período se mantienen o son reemplazados por otros en el siguiente, generando una modificación en la composición política.|
-|Cambio: Proceso mediante el cual los partidos elegidos en un período pueden continuar en el siguiente o ser sustituidos por otros, lo que resulta en una modificación en la composición política.|
+|Transición: Proceso en el cual los partidos electos en un período se mantienen o son reemplazados por otros en el siguiente, generando una modificación en la composición política.|
+|Transición: Proceso mediante el cual los partidos elegidos en un período pueden continuar en el siguiente o ser sustituidos por otros, lo que resulta en una modificación en la composición política.|
 
 |Definición|
 |:-------------------------------------------------------------------------:|
@@ -90,7 +90,7 @@ Las cuales están conformadas de la manera siguiente:
 | Clave | Municipio | 
 |:------------------:|:--------------:|
 |20   | Jerez    | 
-| 43  | Susticacan  | 
+| 43  | Susticacán  | 
 | 46    | Tepetongo  | 
 | 55  | Villanueva   | 
 
@@ -100,7 +100,7 @@ Las cuales están conformadas de la manera siguiente:
 | Clave | Municipio | 
 |:------------------:|:--------------:|
 | 9   | Chalchihuites   | 
-| 21     | Jiménez del Teul   | 
+| 21     | Jiménez del Teúl   | 
 |40    | Sain Alto  | 
 | 42  | Sombrerete    | 
 
@@ -120,7 +120,7 @@ Las cuales están conformadas de la manera siguiente:
 
 | Clave | Municipio | 
 |:------------------:|:--------------:|
-| 7      | Cncepción del Oro | 
+| 7      | Concepción del Oro | 
 | 26     | Mazapil | 
 | 27     | Melchor Ocampo   | 
 | 41   | El Salvador   | 
@@ -132,7 +132,7 @@ Las cuales están conformadas de la manera siguiente:
 | Clave | Municipio | 
 |:------------------:|:--------------:|
 | 31    | Monte Escobedo    | 
-| 49    | Valparaiso    | 
+| 49    | Valparaíso    | 
 
 |       SUR ESTE     |
 |:-------------------------------------------------------------------------|
@@ -140,14 +140,14 @@ Las cuales están conformadas de la manera siguiente:
 | Clave | Municipio | 
 |:------------------:|:--------------:|
 | 8     | Cuauhtémoc  | 
-| 16    | General Panfilo Natera   | 
+| 16    | General Pánfilo Natera   | 
 | 24    | Loreto| 
 | 25  | Luis Moya   | 
 | 35   | Noria de Ángeles  | 
 | 36   | Ojocaliente    | 
 | 38      | Pinos| 
 | 52 | Villa García   | 
-| 53     | Villa Gonzalez Ortega | 
+| 53     | Villa González Ortega | 
 | 54 | Villa Hidalgo   | 
 
 |      SUR        |
@@ -257,7 +257,7 @@ donde, para cada periodo electoral $(t_i,t_{i+1})$:
 | 6 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert>1,\; \lvert x_{t_{i+1}}\rvert=1,\; x_{t_i}\cap x_{t_{i+1}}=\emptyset$ |
 | 7 | $x_{t_i}\neq x_{t_{i+1}},\; \lvert x_{t_i}\rvert>1,\; \lvert x_{t_{i+1}}\rvert=1,\; x_{t_i}\cap x_{t_{i+1}}\neq\emptyset$ |
 
-Donde $|x_t|$ denota la cardinalidad de la coalición $x$. De este modo, los cambios se etiquetan dependiendo de si involucran partidos individuales o coaliciones, y de si existen partidos compartidos entre los ganadores consecutivos.
+Donde $|x_t|$ denota la cardinalidad de la coalición $x$. De este modo, las transiciones se etiquetan dependiendo de si involucran partidos individuales o coaliciones, y de si existen partidos compartidos entre los ganadores consecutivos.
 
 Definimos ahora la función
 
@@ -284,11 +284,11 @@ A la imagen de la función $g$ le damos los siguientes nombres:
 | Código | Interpretación   |
 | ------ | ---------------- |
 | 0      | Estabilidad      |
-| 1      | Cambio con ayuda |
-| 2      | Cambio forzado   |
-| 3      | Cambio simple    |
+| 1      | Estabilidad asistida |
+| 2      | Transición forzada   |
+| 3      | Transición simple    |
 
-Por ejemplo, una transición que va de un partido a una coalición que lo contiene se clasifica como un *cambio con ayuda*.
+Por ejemplo, una transición que va de un partido a una coalición que lo contiene se clasifica como una *estabilidad asistida*.
 
 Finalmente, la codificación considerada está dada por
 
